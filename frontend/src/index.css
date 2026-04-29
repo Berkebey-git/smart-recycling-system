@@ -1,0 +1,20 @@
+/* Bu dosya ne işe yarar:
+Uygulamanın genel yazı tipi, arka plan ve temel sayfa düzenini ayarlar. */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: radial-gradient(circle at top left, #dcfce7, #ecfeff 45%, #f0fdf4);
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+#root {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-inline: 8px;
+}

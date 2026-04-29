@@ -1,0 +1,5 @@
+{
+  "$comment": "Bu dosya Vercel build ve çıktı klasörü ayarlarını tanımlar.",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
+}

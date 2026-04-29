@@ -1,0 +1,148 @@
+/* Bu dosya ne işe yarar:
+AI asistan avatarının sağ alt konumu, konuşma animasyonları ve buton stilini tanımlar. */
+
+.ai-assistant-wrapper {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+
+.ai-avatar {
+  width: 100px;
+  height: 112px;
+  border-radius: 72% 18% 70% 24% / 72% 22% 68% 30%;
+  background: radial-gradient(circle at 30% 20%, #86efac 0%, #34d399 42%, #059669 100%);
+  box-shadow: 0 10px 24px rgba(16, 185, 129, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transform: rotate(-18deg);
+}
+
+/* Burada ne yapılıyor:
+Yaprak damarını temsil eden ince bir çizgi eklenerek avatar daha doğal görünür. */
+.ai-avatar::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 66px;
+  background: rgba(236, 253, 245, 0.65);
+  left: 48px;
+  top: 23px;
+  border-radius: 999px;
+  transform: rotate(24deg);
+}
+
+/* Burada ne yapılıyor:
+Asistan konuşurken avatar çevresinde pulse efekti oluşur. */
+.ai-avatar.talking {
+  animation: assistantPulse 1s infinite;
+}
+
+.ai-face {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 7px;
+  transform: rotate(18deg);
+  z-index: 1;
+}
+
+.ai-eye {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #064e3b;
+  position: relative;
+}
+
+.ai-eye::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #bbf7d0;
+  top: 1px;
+  left: 1px;
+}
+
+.ai-cheeks {
+  width: 54px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  transform: rotate(18deg);
+  z-index: 1;
+}
+
+.ai-cheeks span {
+  width: 10px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 153, 153, 0.5);
+}
+
+.ai-mouth {
+  width: 22px;
+  height: 10px;
+  border-radius: 999px;
+  border: 3px solid #064e3b;
+  border-top: 0;
+  background: transparent;
+  transform-origin: center;
+  transform: rotate(18deg);
+  z-index: 1;
+}
+
+.ai-mouth.moving {
+  animation: mouthMove 0.22s infinite;
+}
+
+.mute-button {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(90deg, #059669, #22c55e);
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.32);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.mute-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+@keyframes mouthMove {
+  0% {
+    transform: scaleY(0.95);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+  100% {
+    transform: scaleY(0.95);
+  }
+}
+
+@keyframes assistantPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
